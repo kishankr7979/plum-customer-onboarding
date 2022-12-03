@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { Suspense } from 'react'
+import { ReactElement, Suspense } from 'react'
 import dynamic from 'next/dynamic'
 import { LinearProgress } from '@mui/material';
 const OnboardingFormOne = dynamic(() => import('../modules/layouts/components/OnboardingFormOne'), {
@@ -15,7 +15,7 @@ const Declaration = dynamic(() => import('../modules/layouts/components/Declarat
   suspense: true,
 });
 import styled from 'styled-components';
-import { useReducer } from 'react';
+import { useReducer, useRef } from 'react';
 import ApplicationReducer, { applicationReducerInitialState } from '../state/reducer';
 import { UPDATE_STEP } from '../state/action';
 import Card from '../lib/Card';
@@ -24,6 +24,7 @@ import { Button } from '@mui/material';
 import ApplicationContext, { ContextState } from '../state/ApplicationContext';
 import BackButton from '../lib/BackButton';
 export default function Home() {
+  const formRef = useRef<any>();
   const [state, dispatch] = useReducer(ApplicationReducer, applicationReducerInitialState);
   const contextValue = {
     data: state,
@@ -89,15 +90,12 @@ export default function Home() {
 
 const Parent = styled.div`
   position: relative;
-  overflow: scroll;
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
   margin-top: 3rem;
-  margin-bottom: 3rem;
-
 `;
 const Content = styled.div`
   display: flex;
@@ -170,16 +168,8 @@ const Footer = styled.div<{ disabled: boolean }>`
       color: #ffffff;
     width: 320px;
     height: 47px;
-
-    /* Primary/500
-
-    Main switch - Single source of truth
-    */
     background: ${(props) => props.disabled ? 'grey' : '#E06358'};
     border-radius: 6px;
-
-    /* Inside auto layout */
-
     flex: none;
     order: 1;
     align-self: stretch;

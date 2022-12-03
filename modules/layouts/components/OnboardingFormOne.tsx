@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, forwardRef } from 'react'
 import styled from 'styled-components';
 import Card from '../../../lib/Card';
 import { UPDATE_PLAN_DETAILS, UPDATE_USER_DETAILS } from '../../../state/action';
@@ -28,7 +28,7 @@ const OnboardingFormOne = ({ name, policyAmount }: OnboardingFormOneProps) => {
     )
 }
 
-export default OnboardingFormOne
+export default forwardRef(OnboardingFormOne);
 
 const Parent = styled.div`
     height: 100%;
