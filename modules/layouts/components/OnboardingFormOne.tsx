@@ -1,20 +1,16 @@
-import React, { Dispatch } from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components';
 import Card from '../../../lib/Card';
-import { TextField, InputLabel, MenuItem, FormControl } from '@mui/material';
-import { OnboardingDataTypes } from '../../../state/reducer';
 import { UPDATE_PLAN_DETAILS, UPDATE_USER_DETAILS } from '../../../state/action';
-import Image from 'next/image';
-import { planList, imagesMap } from '../utils';
 import PlanDetail from './PlanDetail';
 import BasicDetail from './BasicDetail';
+import ApplicationContext from '../../../state/ApplicationContext';
 interface OnboardingFormOneProps {
-    state: OnboardingDataTypes;
-    dispatch: any;
     name: string;
     policyAmount: number;
 }
-const OnboardingFormOne = ({ name, policyAmount, state, dispatch }: OnboardingFormOneProps) => {
+const OnboardingFormOne = ({ name, policyAmount }: OnboardingFormOneProps) => {
+    const {data, dispatch} = useContext(ApplicationContext);
 
     const onInputHandler = (actionType: string, value: any) => {
         dispatch({ type: actionType, payload: value });
@@ -26,8 +22,8 @@ const OnboardingFormOne = ({ name, policyAmount, state, dispatch }: OnboardingFo
                 <Name>Hello {name},</Name>
                 <Description>Increase yours and your family&apos;s  health insurance cover by <strong>₹{policyAmount} lakhs</strong> with Super top-up!</Description>
             </Heading>
-            <Card title='Plan Details' content={<PlanDetail plan={state.plan} onInputHandler={(plan) => onInputHandler(UPDATE_PLAN_DETAILS, plan)} />} />
-            <Card title='Basic Details(required)' content={<BasicDetail user={state?.user} onChangeHandler={(data) => onInputHandler(UPDATE_USER_DETAILS, data)} />} />
+            <Card title='Plan Details' content={<PlanDetail plan={data.plan} onInputHandler={(plan) => onInputHandler(UPDATE_PLAN_DETAILS, plan)} />} />
+            <Card title='Basic Details(required)' content={<BasicDetail user={data?.user} onChangeHandler={(data) => onInputHandler(UPDATE_USER_DETAILS, data)} />} />
         </Parent>
     )
 }

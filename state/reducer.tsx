@@ -1,4 +1,4 @@
-import { UPDATE_PLAN_DETAILS, UPDATE_USER_DETAILS, UPDATE_STEP } from "./action";
+import { UPDATE_PLAN_DETAILS, UPDATE_USER_DETAILS, UPDATE_STEP, UPDATE_DECLARATION, UPDATE_DEDUCTIBLE_DECLARATION, UPDATE_DEDUCTIBLE_AMOUNT } from "./action";
 
 export type PlanType = {
     id: string;
@@ -20,6 +20,14 @@ export type OnboardingDataTypes = {
     step: 1 | 2 | 3 | 4;
     plan: PlanType;
     user: UserType;
+    deductibleAmount: number;
+    deductibleUndertaking: boolean;
+    declaration: {
+        declarationFirst: boolean;
+        declarationSecond: boolean;
+        declarationThird: boolean;
+        declarationFour: boolean;
+    }
 }
 
 export const applicationReducerInitialState: OnboardingDataTypes = {
@@ -39,7 +47,16 @@ export const applicationReducerInitialState: OnboardingDataTypes = {
         addressLineTwo: '',
         pinCode: '',
         state: '',
+    },
+    deductibleAmount: 200000,
+    deductibleUndertaking: false,
+    declaration: {
+        declarationFirst: false,
+        declarationSecond: false,
+        declarationThird: false,
+        declarationFour: false,
     }
+
 }
 
 const ApplicationReducer = (state: OnboardingDataTypes = applicationReducerInitialState, action: any) => {
@@ -61,6 +78,24 @@ const ApplicationReducer = (state: OnboardingDataTypes = applicationReducerIniti
             return {
                 ...state,
                 step: payload,
+            }
+        }
+        case UPDATE_DEDUCTIBLE_DECLARATION: {
+            return {
+                ...state,
+                deductibleUndertaking: payload,
+            }
+        }
+        case UPDATE_DECLARATION: {
+            return {
+                ...state,
+                declaration: payload,
+            }
+        }
+        case UPDATE_DEDUCTIBLE_AMOUNT: {
+            return {
+                ...state,
+                deductibleAmount: payload,
             }
         }
     }

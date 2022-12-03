@@ -9,7 +9,7 @@ interface CardProps {
 const Card = ({title, content,variant=1}: CardProps) => {
     const [open, setOpen] = useState<boolean>(true);
     const onAccordionClick = () =>{ 
-        if(variant === 2) return;
+        if([2,3].includes(variant)) return;
         setOpen(!open)
     };
     return (
@@ -51,9 +51,9 @@ const Title = styled.div<{variant: number}>`
     flex-grow: 0;
     display: flex;
     flex-direction: row;
-    justify-content: ${(props) => props.variant === 1 ? 'space-between' : 'center'};
+    justify-content: ${(props) => [1, 3].includes(props.variant) ? 'space-between' : 'center'};
 
-    align-items: ${(props) => props.variant === 1 ? 'flex-start' : 'center'};
+    align-items: ${(props) => [1, 3].includes(props.variant) ? 'flex-start' : 'center'};
     padding: 16px;
     gap: 10px;
 
