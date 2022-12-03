@@ -7,11 +7,11 @@ install dependencies - ``yarn install``
 start local dev server - ``yarn dev``
 
 ## Tech stack : 
-  ``
+
   1. NextJS
   2. Material UI
   3. Styled componets
-  ``
+ 
 ## State Management:
   `` Context API + Reducer``
 
