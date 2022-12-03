@@ -20,23 +20,23 @@ start local dev server - ``yarn dev``
 ![Screenshot 2022-12-03 at 3 24 11 PM](https://user-images.githubusercontent.com/41482800/205435169-f72f7b33-9315-4536-92cb-22bc93c975fb.png)
 
 ## Data Entiry for customer onboardin : 
-`` export type PlanType = {
+<p> export type PlanType = {
     id: string;
     category: 'ONE' | 'PRO' | 'PLUS' | 'MAX';
     displayCategory: string,
     displayText: string;
     type: 'SELF' | 'PARENTS' | 'SELF_PARENTS' | 'SELF_SPOUSE_KIDS';
     amount: number;
-}``
-``export type UserType = {
+}</p>
+<p>export type UserType = {
     email: string;
     phone: string;
     addressLineOne: string;
     addressLineTwo: string;
     pinCode: string;
     state: string;
-}``
-``export type OnboardingDataTypes = {
+}</p>
+<p>export type OnboardingDataTypes = {
     step: 1 | 2 | 3 | 4;
     plan: PlanType;
     user: UserType;
@@ -49,7 +49,7 @@ start local dev server - ``yarn dev``
         declarationFour: boolean;
     }
 }
-``
+</p>
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
