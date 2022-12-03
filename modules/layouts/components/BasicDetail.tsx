@@ -18,7 +18,7 @@ const BasicDetail = ({ user, onChangeHandler }: BasicDetailProps) => {
     {
       id: 2,
       label: 'Mobile number',
-      type: 'text',
+      type: 'number',
       value: user?.phone,
       onChange: (val: string) => onChangeHandler({ ...user, phone: val }),
       required: true,
@@ -42,7 +42,7 @@ const BasicDetail = ({ user, onChangeHandler }: BasicDetailProps) => {
     {
       id: 5,
       label: 'Pincode',
-      type: 'text',
+      type: 'number',
       value: user?.pinCode,
       onChange: (val: string) => onChangeHandler({ ...user, pinCode: val }),
       required: true,
@@ -63,7 +63,9 @@ const BasicDetail = ({ user, onChangeHandler }: BasicDetailProps) => {
           return (
             <div className='items' key={item.id}>
               <span className="label">{item.label}</span>
-            <InputTag key={item.id} placeholder={item.label} value={item.value} onChange={(event) => item.onChange(event.target.value)} />
+            <InputTag key={item.id} placeholder={item.label} value={item.value} 
+            type={item.type}
+            onChange={(event) => item.onChange(event.target.value)} />
             </div>
           );
         })}

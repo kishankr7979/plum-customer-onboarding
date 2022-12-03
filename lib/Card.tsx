@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components';
 
 interface CardProps {
-    title: string | JSX.Element;
+    title?: string | JSX.Element;
     content: string | JSX.Element;
     variant?: number;
 }
@@ -14,10 +14,10 @@ const Card = ({title, content,variant=1}: CardProps) => {
     };
     return (
         <Parent>
-            <Title onClick={onAccordionClick} variant={variant}>
+            {variant !== 4 && <Title onClick={onAccordionClick} variant={variant}>
                 <span className='card-title'>{title}</span>
                 {variant === 1 && <span className='arrow'>{open ? <>&#8593;</> : <>&#8595;</>}</span>}
-            </Title>
+            </Title>}
             {open && <Content>{content}</Content>}
         </Parent>
     )

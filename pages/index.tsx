@@ -23,6 +23,7 @@ import FormPreview from '../modules/layouts/components/FormPreview';
 import { Button } from '@mui/material';
 import ApplicationContext, { ContextState } from '../state/ApplicationContext';
 import BackButton from '../lib/BackButton';
+import Review from '../modules/layouts/components/Review';
 export default function Home() {
   const formRef = useRef<any>();
   const [state, dispatch] = useReducer(ApplicationReducer, applicationReducerInitialState);
@@ -61,19 +62,10 @@ export default function Home() {
                 onBackClick={onBackClick}
               />}
               {state?.step === 3 && <Declaration onBackClick={onBackClick} />}
-              <div className="preview">
-                {state?.step === 4 && <><Heading>
-                  <div className="header">
-                    <BackButton onButtonClick={onBackClick} />
-                    <div className='title'>
-                      <Title>Review and confirm payment</Title>
-                    </div>
-                  </div>
-                </Heading></>}
-                {state?.step === 5 && <Heading><div className="header"><Title>Congratulations!</Title></div></Heading>}
+              {[1, 2, 3].includes(state?.step) && <div className="preview">
                 <Card title='Form preview' content={<FormPreview user={state?.user} />} variant={2} />
-              </div>
-
+              </div>}
+              {[4,5].includes(state?.step) && <Review onBackClick={onBackClick} />}
             </div>
           </Content>
           {state?.step < 5 && (
