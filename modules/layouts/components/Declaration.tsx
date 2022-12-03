@@ -98,27 +98,14 @@ const Title = styled.span`
     font-size: 32px;
     line-height: 120%;
 
-
     color: #182639;
-
-
-`;
-
-const Name = styled.span`
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 130%;
-
-    color: #000A26;
 
 `;
 
 const Undertaking = styled.div`
     display: flex;
     gap: 5px;
-    align-items: flex-start;
+    align-items: center;
 
 `;
 

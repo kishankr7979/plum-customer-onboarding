@@ -36,7 +36,7 @@ const OnboardingFormTwo = ({ name, policyAmount, onBackClick }: OnboardingFormTw
                     <div className='title'>
                         <Title>Select your deductible amount</Title>
                         <Description>Select the deductible amount for the policy (or policies) below.
-                            (what is a deductible?) </Description>
+                            <a href="https://www.plumhq.com/terms" style={{textDecoration: 'underlined'}} target="_blank" rel="noreferrer">(what is a deductible?) </a></Description>
                     </div>
                 </div>
             </Heading>
@@ -47,7 +47,7 @@ const OnboardingFormTwo = ({ name, policyAmount, onBackClick }: OnboardingFormTw
                         color: '#E06358',
                     },
                 }} onChange={(event) => onCheckedHandler(event.target.checked)} />
-                <Text>I understand that this insurance will not be utilized until ₹{data?.deductibleAmount} (deductible) is exhausted.</Text>
+                <Text>I understand that this insurance will not be utilized until ₹{new Intl.NumberFormat('en-IN').format(data?.deductibleAmount)} (deductible) is exhausted.</Text>
             </Undertaking>
         </Parent>
     )

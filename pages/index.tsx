@@ -50,6 +50,7 @@ export default function Home() {
           <Head>
             <title>Onboarding - Plum</title>
             <meta name="Plum onboarding" content="buy health insurance" />
+            <link rel="stylesheet" href="https://rsms.me/inter/inter.css"></link>
           </Head>
           <StepperComponent currentStep={state?.step as number} totalSteps={4} />
           <Content>
@@ -110,16 +111,14 @@ const Content = styled.div`
     gap: 1rem;
     width: 80%;
     height: 100%;
-    flex-wrap: nowrap;
     .preview {
-      width: 100%;
+      width: 50%;
       display: flex;
       flex-direction: column;
       gap: 1rem;
       height: 100%;
     }
   }
-  
 `;
 
 const Title = styled.span`

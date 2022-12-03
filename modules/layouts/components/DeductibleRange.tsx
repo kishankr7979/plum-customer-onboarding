@@ -27,7 +27,7 @@ interface DeductibleRangeProps {
 const DeductibleRange = ({ policyAmount}: DeductibleRangeProps) => {
     const {data, dispatch} = useContext(ApplicationContext);
     function valuetext(value: number) {
-        return `${value}L`
+        return `${new Intl.NumberFormat('en-IN').format(value)}L`
     }
     const onChange = (value: number) => {
         dispatch({type: UPDATE_DEDUCTIBLE_AMOUNT, payload: value})
@@ -35,7 +35,7 @@ const DeductibleRange = ({ policyAmount}: DeductibleRangeProps) => {
     return (
         <Parent>
             <Title>
-                Sum insured of ₹{policyAmount} with a deductible of ₹{data.deductibleAmount}
+                Sum insured of ₹{new Intl.NumberFormat('en-IN').format(policyAmount)} with a deductible of ₹{new Intl.NumberFormat('en-IN').format(data.deductibleAmount)}
             </Title>
             <Box sx={{ width: '100%' }}>
             <Slider
