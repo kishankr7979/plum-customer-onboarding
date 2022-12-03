@@ -10,7 +10,7 @@ start local dev server - ``yarn dev``
 
   1. NextJS
   2. Material UI
-  3. Styled componets
+  3. Styled components
  
 ## State Management:
   `` Context API + Reducer``
