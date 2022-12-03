@@ -19,7 +19,7 @@ start local dev server - ``yarn dev``
 
 ![Screenshot 2022-12-03 at 3 24 11 PM](https://user-images.githubusercontent.com/41482800/205435169-f72f7b33-9315-4536-92cb-22bc93c975fb.png)
 
-## Data Entiry for customer onboardin : 
+## Data Entiry for customer onboarding : 
 <p> export type PlanType = {
     id: string;
     category: 'ONE' | 'PRO' | 'PLUS' | 'MAX';
@@ -37,7 +37,7 @@ start local dev server - ``yarn dev``
     state: string;
 }</p>
 <p>export type OnboardingDataTypes = {
-    step: 1 | 2 | 3 | 4;
+    step: 1 | 2 | 3 | 4 | 5;
     plan: PlanType;
     user: UserType;
     deductibleAmount: number;
@@ -50,6 +50,11 @@ start local dev server - ``yarn dev``
     }
 }
 </p>
+
+## Misc
+1. Form validation is on high level, ``Next`` button will not get enabled until all fields are filled.
+2. Entity ``UserType.addressLineTwo`` has been excluded from above restriction, since ``UserType.addressLineTwo`` can be enough in case of short address.
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
