@@ -27,16 +27,16 @@ start local dev server - ``yarn dev``
     displayText: string;
     type: 'SELF' | 'PARENTS' | 'SELF_PARENTS' | 'SELF_SPOUSE_KIDS';
     amount: number;
-}
-export type UserType = {
+}``
+``export type UserType = {
     email: string;
     phone: string;
     addressLineOne: string;
     addressLineTwo: string;
     pinCode: string;
     state: string;
-}
-export type OnboardingDataTypes = {
+}``
+``export type OnboardingDataTypes = {
     step: 1 | 2 | 3 | 4;
     plan: PlanType;
     user: UserType;
