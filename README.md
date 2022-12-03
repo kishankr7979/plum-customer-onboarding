@@ -15,7 +15,7 @@ start local dev server - ``yarn dev``
 ## State Management:
   `` Context API + Reducer``
 
-## Basic app overview architecture : 
+## Basic app architecture : 
 
 ![Screenshot 2022-12-03 at 3 24 11 PM](https://user-images.githubusercontent.com/41482800/205435169-f72f7b33-9315-4536-92cb-22bc93c975fb.png)
 
