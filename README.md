@@ -21,7 +21,8 @@ start local dev server - ``yarn dev``
 
 ## Data Entiry for customer onboarding : 
 
-```export type PlanType = {
+```
+export type PlanType = {
     id: string;
     category: 'ONE' | 'PRO' | 'PLUS' | 'MAX';
     displayCategory: string,
